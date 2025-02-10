@@ -139,3 +139,7 @@ const useCounterStore = create<CounterState>((set) => {
 });
 
 export default useCounterStore;
+
+export type { CounterState };
+
+export { InitialState as DefaultCounterState };
