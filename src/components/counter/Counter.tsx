@@ -4,12 +4,18 @@ import { FaPlus, FaMinus, FaRedo } from "react-icons/fa";
 import buttonVariants from "../../framer/variants/MainButton";
 import useCounterStore from "../../stores/counter";
 import ConfettiComponent from "./Confetties";
+import useAppStore from "../../stores/app";
 
 export default function Counter() {
   const counter = useCounterStore();
+  const app = useAppStore();
+  const confettiEnabled = app.getPreference<boolean>(
+    "features",
+    "confetti_enabled"
+  );
   return (
     <div className="flex flex-col gap-8 min-w-[20rem] max-w-[20rem] justify-center items-center flex-grow px-4">
-      <ConfettiComponent />
+      {confettiEnabled && <ConfettiComponent />}
       <ScoreCard />
 
       <div className="flex gap-4">
