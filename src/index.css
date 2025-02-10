@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+*,
+*::before,
+*::after {
+  @apply box-border;
+}
+
+@theme {
+  --color-background: var(--colorBackground);
+  --color-on-background: var(--colorOnBackground);
+  --color-primary: var(--colorPrimary);
+  --color-on-primary: var(--colorOnPrimary);
+}
+
+button.button-filled {
+  @apply select-none inline-flex flex-col border border-primary  py-2 px-4 bg-primary rounded-2xl text-center items-center justify-center text-on-primary hover:bg-on-primary hover:text-primary;
+}
+
+:root {
+  --colorBackground: #fff;
+  --colorOnBackground: #181818;
+  --colorPrimary: teal;
+  --colorPrimaryContainer: rgb(94, 202, 202);
+  --colorOnPrimary: rgb(223, 255, 255);
+}
+
+html {
+  font-family: "Inter", "system-ui";
+}
+
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: "InterVariable", "system-ui";
+  } /* If using the variable font */
+}
+
+:root {
+  line-height: 1.5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  @apply bg-background text-on-background text-[16px];
+}
+
+body {
+  margin: 0;
+  background-color: linear-gradient(to bottom, #f0fdfa, #ccfbf1);
+  min-height: 100vh;
+}
+
+#root {
+  height: 100vh;
+}
