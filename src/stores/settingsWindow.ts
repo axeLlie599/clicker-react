@@ -16,13 +16,9 @@ export const useSettingsWindowStore = create<SettingsWindowState>(
   (set, get) => ({
     ...InitialState,
     toggle: () => {
-      if (get().ignoreToggle) {
-        return;
-      }
+      if (get().ignoreToggle) return;
       set((state) => ({ isOpen: !state.isOpen }));
     },
-    setIgnoreToggle: (value: boolean) => {
-      set({ ignoreToggle: value });
-    },
+    setIgnoreToggle: (value: boolean) => set({ ignoreToggle: value }),
   })
 );
